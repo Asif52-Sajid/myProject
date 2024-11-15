@@ -6,6 +6,29 @@
 </head>
 <body>
 <h1> This is Home </h1>
-
+<a href="{% url 'product'%}">Go to Product Page</a>
+<!--{%for i in products%}
+<div class="row">
+  <div class="column">
+<table border="2" style="width:25%">
+  <tr style="height:30px">
+    <th style="text-align: center;color:white;">Name</th>
+  </tr>
+  <tr style="height:30px">
+    <td style="text-align: center;color:black;">{{i.name}}</td>
+  </tr>
+      <tr style="height:30px">
+    <td style="text-align: center"><a href = "{% url 'detail-product' i.id %}" style="color:white;">Details</a></td>
+  </tr>
+  <tr style="height:30px">
+    <td style="text-align: center"><a href = "{% url 'update-product' i.id %}" style="color:black;">Update Product.</a></td>
+  </tr>
+</table><br>
+     <div class="column">
+  </div>
+  </div>
+<a href = "{% url 'delete-product' i.id %}">Delete Product.</a><br>
+ {%endfor%}
+</div>-->
 </body>
 </html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+    <style>
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  margin-left:-1px;
+  margin-right:-3px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: center;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: powderblue;
+}
+tr:nth-child(odd) {
+  background-color: black;
+}
+body {
+  background-image: url('cover.jpg');
+}
+  </style>
+</head>
+<body style="background-color:silver;">
+<style>
+  h1 {text-align: center;}
+</style>
+<h1 style="color:black;">Here is the list of our Products.</h1>
+<h3><a href = "{% url 'create-product'%}" style="color:black;">Add a New product.</a></h3><br><br>
+{%for i in products%}
+<div class="row">
+  <div class="column">
+<table border="2" style="width:25%">
+  <tr style="height:30px">
+    <th style="text-align: center;color:white;">Name</th>
+  </tr>
+  <tr style="height:30px">
+    <td style="text-align: center;color:black;">{{i.name}}</td>
+  </tr>
+  <tr style="height:30px">
+    <td style="text-align: center"><a href = "{% url 'detail-product' i.id %}" style="color:white;">Details</a></td>
+  </tr>
+  <tr style="height:30px">
+    <td style="text-align: center"><a href = "{% url 'update-product' i.id %}" style="color:black;">Update Product.</a></td>
+  </tr>
+</table><br>
+     <div class="column">
+  </div>
+  </div>
+<!--<a href = "{% url 'delete-product' i.id %}">Delete Product.</a><br>-->
+ {%endfor%}
+</div>
+
+</body>
+</html>
