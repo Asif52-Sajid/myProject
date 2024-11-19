@@ -11,10 +11,10 @@ def create_product(request):
             return HttpResponse('Success')
     else:
          form = ProductForm()
-    return render(request, 'form.html', {'form': form})
+    return render(request, 'components/form.html', {'form': form})
 def detail_product(request,p_id):
     p=Product.objects.get(pk=p_id)
-    return render(request,'detail-product.html',{"p":p})
+    return render(request, 'components/detail-product.html', {"p":p})
 def update_product(request,p_id):
     p = Product.objects.get(pk=p_id)
     if request.method == 'POST':
@@ -24,7 +24,7 @@ def update_product(request,p_id):
             return HttpResponse('Success')
     else:
         form = ProductForm(instance=p)
-    return render(request, 'form.html', {'form': form})
+    return render(request, 'components/form.html', {'form': form})
 def delete_product(request,p_id):
     Product.objects.get(pk=p_id).delete()
     return HttpResponse('Success')

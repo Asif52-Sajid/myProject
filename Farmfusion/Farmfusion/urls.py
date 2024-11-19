@@ -25,4 +25,9 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('product', views.product, name='product'),
     path('',include('products.urls')),
+path('', views.home, name='home'),
+    path('base', views.base, name='base'),
+path('accounts/register/',views.register,name='register'),
+    path('login/',views.LOGIN,name='login'),
+    path('logout/', views.LOGOUT, name='logout'),
 ]

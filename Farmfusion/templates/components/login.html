@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+    <section>
+        <!-- Use {% url 'login' %} to avoid hardcoding paths -->
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <div class="container">
+                <h3>Login Here</h3>
+
+                <label for="username">Username</label>
+                <input type="text" placeholder="Enter Username" id="username" name="username"><br>
+
+                <label for="password">Password</label>
+                <input type="password" placeholder="Enter Password" id="password" name="password">
+
+                <button type="submit">Log In</button>
+
+                <div class="social">
+                    <!-- Link to registration using URL name -->
+                    <div class="go"><a href="{% url 'register' %}">Register</a></div>
+                    <div class="fb"><a href="#">Forget password</a></div>
+                </div>
+            </div>
+        </form>
+    </section>
+</body>
+{% endblock %}
