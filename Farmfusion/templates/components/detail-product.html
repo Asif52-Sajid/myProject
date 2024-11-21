@@ -58,9 +58,9 @@ tr:nth-child(even) {
         <td style="text-align: center ;color:black;">{{p.price}}</td>
         <td style="text-align: center ;color:black;">{{p.quantity}}</td>
     </tr>
-    <tr style="height:40px">
-        <td style="text-align: center ;color:white;">Image</td>
-        <td colspan="2"><img src="Image,cover.png"></td>
+    <tr>
+        <td style="text-align: center;color:white;">Image</td>
+        <td colspan="2"><img src="{{ p.image.url }}" style="height:90px ; width:150px"></td>
     </tr>
     <tr>
         <td colspan ="3"><button input type="submit">Buy</button></td>
