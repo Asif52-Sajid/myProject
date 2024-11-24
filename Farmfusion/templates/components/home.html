@@ -2,29 +2,234 @@
 {% load static %}
 {% block content %}
 
-<h1> This is Home </h1>
-<!--<a href="{% url 'product'%}">Go to Product Page</a>-->
-<!--{%for i in products%}
-<div class="row">
-  <div class="column">
-<table border="2" style="width:25%">
-  <tr style="height:30px">
-    <th style="text-align: center;color:white;">Name</th>
-  </tr>
-  <tr style="height:30px">
-    <td style="text-align: center;color:black;">{{i.name}}</td>
-  </tr>
-      <tr style="height:30px">
-    <td style="text-align: center"><a href = "{% url 'detail-product' i.id %}" style="color:white;">Details</a></td>
-  </tr>
-  <tr style="height:30px">
-    <td style="text-align: center"><a href = "{% url 'update-product' i.id %}" style="color:black;">Update Product.</a></td>
-  </tr>
-</table><br>
-     <div class="column">
-  </div>
-  </div>
-<a href = "{% url 'delete-product' i.id %}">Delete Product.</a><br>
- {%endfor%}
-</div>-->
+{% load static %}
+<div id="carouselExampleDark" class="carousel carousel-dark slide mb-5" data-bs-ride="carousel">
+   <ol class="carousel-indicators">
+      <li data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></li>
+      <li data-bs-target="#carouselExampleDark" data-bs-slide-to="1"></li>
+      <li data-bs-target="#carouselExampleDark" data-bs-slide-to="2"></li>
+   </ol>
+   <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="3000">
+         <img src="{% static 'images/image_slider (1).jpeg' %}" class="d-block w-100" alt="First slide" height="550px">
+         <div class="carousel-caption d-none d-md-block">
+            <h5>Green Veggies</h5>
+            <p>"Green Veggies, Green Life: Eat Fresh, Live Best!" 🌱</p>
+         </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+         <img src="{% static 'images/image_slider (2).jpeg' %}" class="d-block w-100" alt="Second slide" height="550px">
+         <div class="carousel-caption d-none d-md-block">
+            <h5>Fresh Fruits</h5>
+            <p>"Fresh Fruits, Fresh You: Nature's Sweetest Gift!" 🍎🍇🍊</p>
+         </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+         <img src="{% static 'images/image_slider (3).png' %}" class="d-block w-100" alt="Third slide" height="550px">
+         <div class="carousel-caption d-none d-md-block">
+            <h5>Discounts!!!</h5>
+            <p>Get Discount coupons with every order</p>
+         </div>
+      </div>
+   </div>
+   <a class="carousel-control-prev" href="#carouselExampleDark" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+   </a>
+   <a class="carousel-control-next" href="#carouselExampleDark" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+   </a>
+</div>
+<!-- end of carousel -->
+
+   <h1
+      class="text-center"
+      style="color: grey; font-family: 'Cursive', sans-serif;">
+      Trending Produces
+    </h1>
+<br>
+
+
+    <div class="container mb-5">
+          <div id="products" class="row">
+              <div class="col-xl-3 col-lg-4 col-md-6 position-relative">
+
+
+                  <div class="card product-item">
+                    <i class="bi bi-heart-fill position-absolute liked"></i>
+                    <i class="bi bi-heart position-absolute like"></i>
+                    <img src="{% static 'images/emon_ded.jpeg' %}"  class="card-img-top" alt="..." data-bs-toggle="tooltip" data-bs-placement="top" title="Click to See Product Details">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2 text-muted  fw-light">Vegetable</h6>
+                      <h5 class="card-title">Emon</h5>
+                      <p class="card-text price"> $00.75 <span class="float-end rating-stars" >
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                      </span> </p>
+                      <div class="text-center">
+                        <a class="btn btn-dark w-100" role="button" > Add To Cart</a>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6 position-relative">
+
+                <div class="card product-item" >
+                  <i class="bi bi-heart-fill position-absolute liked"></i>
+                <i class="bi bi-heart position-absolute like"></i>
+                  <img src="{% static 'images/emon_ded.jpeg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted  fw-light">Vegetable</h6>
+                     <h5 class="card-title">Emon</h5>
+                     <p class="card-text price"> $00.75 <span class="float-end rating-stars" >
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </span> </p>
+                    <div class="text-center">
+                        <a class="btn btn-dark w-100"  role="button"> Add To Cart</a>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 position-relative">
+
+                <div class="card product-item">
+                  <i class="bi bi-heart-fill position-absolute liked"></i>
+                   <i class="bi bi-heart position-absolute like"></i>
+                  <img src="{% static 'images/emon_ded.jpeg' %}"  class="card-img-top" alt="...">
+                  <div class="card-body">
+                   <h6 class="card-subtitle mb-2 text-muted  fw-light">Vegetable</h6>
+                     <h5 class="card-title">Emon</h5>
+                      <p class="card-text price"> $00.75 <span class="float-end rating-stars" >
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </span> </p>
+                    <div class="text-center">
+                        <a class="btn btn-dark w-100"  role="button"> Add To Cart</a>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 position-relative">
+
+                <div class="card product-item">
+                  <i class="bi bi-heart-fill position-absolute liked"></i>
+                   <i class="bi bi-heart position-absolute like"></i>
+                  <img src="{% static 'images/emon_ded.jpeg' %}"  class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted  fw-light">Vegetable</h6>
+                     <h5 class="card-title">Emon</h5>
+                     <p class="card-text price"> $00.75 <span class="float-end rating-stars" >
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </span> </p>
+                    <div class="text-center">
+                        <a class="btn btn-dark w-100"  role="button"> Add To Cart</a>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 position-relative">
+
+                <div class="card product-item">
+                  <i class="bi bi-heart-fill position-absolute liked"></i>
+                  <i class="bi bi-heart position-absolute like"></i>
+                  <img src="{% static 'images/emon_ded.jpeg' %}"   class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted  fw-light">Vegetable</h6>
+                      <h5 class="card-title">Emon</h5>
+                      <p class="card-text price"> $00.75 <span class="float-end rating-stars" >
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </span> </p>
+                    <div class="text-center">
+                        <a class="btn btn-dark w-100"  role="button"> Add To Cart</a>
+                      </div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 position-relative">
+
+                <div class="card product-item">
+                  <i class="bi bi-heart-fill position-absolute liked"></i>
+                  <i class="bi bi-heart position-absolute like"></i>
+                  <img src="{% static 'images/emon_ded.jpeg' %}"  class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted  fw-light">Vegetable</h6>
+                      <h5 class="card-title">Emon</h5>
+                      <p class="card-text price"> $00.75 <span class="float-end rating-stars" >
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </span> </p>
+                    <div class="text-center">
+                        <a class="btn btn-dark w-100"  role="button"> Add To Cart</a>
+                      </div>
+                  </div>
+                </div>
+            </div>
+
+
+          </div>
+    </div>
+
+
+<!-- About Us -->
+<section class="py-5 text-center" style="background-color: #92bd92; color: white;
+    border-left: 300px solid white; border-right: 300px solid white; border-top: 50px solid white; border-bottom: 50px solid white; padding: 0 15px;">
+
+    <div class="container">
+        <div class="row gy-lg-5 align-items-center">
+            <!-- Text content -->
+            <div class="col-lg-6 order-lg-1 text-center text-lg-start">
+                <div class="title pt-3 pb-5">
+                    <h2 class="position-relative d-inline-block ms-4">About Us</h2>
+                </div>
+
+                <!-- Carousel for paragraph texts -->
+                <div id="aboutUsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <p class="lead text-muted">Building Futures, One Step at a Time</p>
+                            <p>We are dedicated to creating opportunities that uplift communities, bridging the gap between dreams and possibilities.</p>
+                        </div>
+                        <div class="carousel-item">
+                            <p class="lead text-muted">Empowering Change Together</p>
+                            <p>Our mission is to inspire, educate, and empower underprivileged individuals, fostering a brighter and more sustainable future for all.</p>
+                        </div>
+                        <div class="carousel-item">
+                            <p class="lead text-muted">Driven by Purpose, United by Hope</p>
+                            <p>Through collaboration and innovation, we strive to be a beacon of hope, delivering impactful solutions that make a real difference in people's lives.</p>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#aboutUsCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#aboutUsCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Image -->
+            <div class="col-lg-6 order-lg-0 text-center text-lg-start" style="position: relative; overflow: hidden;">
+                <img src="{% static 'images/about_us.png' %}" alt="" class="img-fluid" style="width: 75%; height: auto; border-radius: 10px;">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End of About Us -->
+
+
+
+
 {% endblock %}
