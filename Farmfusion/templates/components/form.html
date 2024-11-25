@@ -1,15 +1,38 @@
 <!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Form</title>
 </head>
-<body>
-<h1>Add a product.</h1>
+<body style="background-color: silver;">
+<section class="py-5 text-center" style="background-color: #92bd92; color: white;
+    border-left: 300px solid white; border-right: 300px solid white; border-top: 50px solid white; border-bottom: 50px solid white; padding: 0 15px;"><h1 style="color:black;">Add a new Product</h1>
+</section>
 <form method = "post" enctype="multipart/form-data">
 {%csrf_token%}
     {{form.as_p}}
-    <button type = "submit">OK</button>
+      <input type="submit" value="Submit" style=" background-color: #92bd92; color: black;">
 </form>
+
+
+<!--<form class="form" method="post" enctype="multipart/form-data" >
+    {%csrf_token%}
+    <div class="half left cf">
+    <input type="text" id="input-name" placeholder="Name"{{form.name}}
+    <input type="text" id="input-price" placeholder="Price" {{form.price}}
+    <input type="text" id="input-quantity" placeholder="Quantity" {{form.quantity}}
+  </div>
+  <div class="half right cf">
+    <textarea name="message" type="text" id="input-message" placeholder="Image" src="{{ p.image.url }}"></textarea>
+  </div>
+  <input type="submit" value="Submit" style=" background-color: #92bd92; color: black; id=">
+</form>-->
 </body>
 </html>
+
+{% endblock %}
