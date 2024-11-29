@@ -152,6 +152,9 @@
           <p class="product-subtitle">All fresh chilli's are available</p>
           <p class="product-price">
             <u><span class="price-current">Details</span></u>
+            <br>
+            <u><span class="price-current">Review</span></u>
+
           </p>
           <a href="#" class="add-to-bag">Add To Cart</a>
         </div>
@@ -164,6 +167,8 @@
           <p class="product-subtitle">All fresh eggplant's are available</p>
           <p class="product-price">
             <u><span class="price-current">Details</span></u>
+            <br>
+            <u><span class="price-current">Review</span></u>
           </p>
           <a href="#" class="add-to-bag">Add To Cart</a>
         </div>
@@ -176,6 +181,8 @@
           <p class="product-subtitle">All fresh tomato's are available</p>
           <p class="product-price">
             <u><span class="price-current">Details</span></u>
+            <br>
+            <u><span class="price-current">Review</span></u>
           </p>
           <a href="#" class="add-to-bag">Add To Cart</a>
         </div>
@@ -188,6 +195,8 @@
           <p class="product-subtitle">All fresh carrot's are available</p>
           <p class="product-price">
             <u><span class="price-current">Details</span></u>
+            <br>
+            <u><span class="price-current">Review</span></u>
           </p>
           <a href="#" class="add-to-bag">Add To Cart</a>
         </div>
@@ -200,6 +209,8 @@
           <p class="product-subtitle">All fresh gourd's are available</p>
           <p class="product-price">
             <u><span class="price-current">Details</span></u>
+            <br>
+            <u><span class="price-current">Review</span></u>
           </p>
           <a href="#" class="add-to-bag">Add To Cart</a>
         </div>
@@ -209,9 +220,16 @@
       <div class="product-card">
         <img src="{{ i.image.url }}" style="height:170px ; width:170px ;margin-left: auto;margin-right: auto;" alt="Product Image">
         <div class="product-info">
+          <br>
+          <br>
           <p class="product-title">{{i.name}}</p>
           <p class="product-subtitle">All fresh {{i.name}}'s are available</p>
-            <span class="price-current"><a href = "{% url 'detail-product' i.id %}" style="color:black;">Details</a></span>
+          <p class="product-price">
+            <br>
+            <span class="price-current"><a href = "{% url 'detail-product' i.id %}" style="color:black;">Details</a></span><br>
+             <span class="price-current"><a href = "{% url 'product_detail' i.id %}" style="color:black;">Review</a></span>
+
+          </p>
           <a href="#" class="add-to-bag">Add To Cart</a>
         </div>
       </div>
