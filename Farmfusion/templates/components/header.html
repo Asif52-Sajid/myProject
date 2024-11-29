@@ -29,7 +29,7 @@
         </div>
                 {% if user.is_authenticated %}
                     <div class="d-flex align-items-center">
-                        <a href="#"><h2 class="m-0 text-primary"><i class="fa-solid fa-user"></i> Hello User! </h2></a>
+                        <a href="#"><h2 class="m-0 text-primary"><i class="fa-solid fa-user"></i> Hello {{ user }}! </h2></a>
                         <a href="{% url 'logout' %}" class="btn nav-item1" style="background-color: #e7e7ff; border-color: #5f5f63; ">Logout</a>
                     </div>
                 {% else %}
