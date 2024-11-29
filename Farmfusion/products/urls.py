@@ -17,10 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
-
+from django.urls import reverse
 urlpatterns = [
     path('create-product',views.create_product,name='create-product'),
     path('detail-product/<int:p_id>', views.detail_product, name='detail-product'),
     path('update-product/<int:p_id>', views.update_product, name='update-product'),
     path('delete-product/<int:p_id>', views.delete_product, name='delete-product'),
+    path('product_detail/<int:p_id>/', views.product_detail, name='product_detail'),
+
+
+
+
 ]
