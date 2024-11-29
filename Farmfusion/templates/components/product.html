@@ -1,82 +1,232 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Product</title>
-    <style>
-* {
-  box-sizing: border-box;
-}
-
-.row {
-  margin-left:-1px;
-  margin-right:-3px;
-}
-
-.column {
-  float: left;
-  width: 50%;
-  padding: 5px;
-}
-
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 1px solid #ddd;
-}
-
-th, td {
-  text-align: center;
-  padding: 16px;
-}
-
-tr:nth-child(even) {
-  background-color: powderblue;
-}
-tr:nth-child(odd) {
-  background-color: black;
-}
-body {
-  background-image: url('cover.jpg');
-}
-  </style>
+   <meta charset="UTF-8">
+    <title>User</title>
 </head>
-<body style="background-color:silver;">
 <style>
-  h1 {text-align: center;}
-</style>
-<h1 style="color:black;">Here is the list of our Products.</h1>
-<h3><a href = "{% url 'create-product'%}" style="color:black;">Add a New product.</a></h3><br><br>
-{%for i in products%}
-<div class="row">
-  <div class="column">
-<table border="2" style="width:25%">
-  <tr style="height:30px">
-    <th style="text-align: center;color:white;">Name</th>
-  </tr>
-  <tr style="height:30px">
-    <td style="text-align: center;color:black;">{{i.name}}</td>
-  </tr>
-  <tr style="height:30px">
-    <td style="text-align: center"><a href = "{% url 'detail-product' i.id %}" style="color:white;">Details</a></td>
-  </tr>
-  <tr style="height:30px">
-    <td style="text-align: center"><a href = "{% url 'update-product' i.id %}" style="color:black;">Update Product.</a></td>
-  </tr>
-</table><br>
-     <div class="column">
-  </div>
-  </div>
-<!--<a href = "{% url 'delete-product' i.id %}">Delete Product.</a><br>-->
- {%endfor%}
-</div>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+    header input {
+      padding: 8px 12px;
+      width: 300px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    header .icons {
+      display: flex;
+      gap: 20px;
+      font-size: 20px;
+    }
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .wishlist-header {
+      margin-bottom: 20px;
+    }
+    .wishlist-header h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      text-align: left;
+      transition: box-shadow 0.2s;
+    }
+    .product-card:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    .product-card img {
+      width: 100%;
+      display: block;
+    }
+    .product-info {
+      padding: 15px;
+    }
+    .product-title {
+      font-size: 16px;
+      margin: 0;
+      color: #333;
+      font-weight: bold;
+    }
+    .product-subtitle {
+      font-size: 14px;
+      color: #666;
+      margin: 5px 0;
+    }
+    .product-price {
+      margin: 5px 0;
+    }
+    .price-current {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+    .price-original {
+      font-size: 14px;
+      color: #aaa;
+      text-decoration: line-through;
+    }
+    .price-discount {
+      font-size: 14px;
+      color: #d9534f;
+      margin-left: 5px;
+    }
+    .add-to-bag {
+      display: block;
+      margin: 10px 0 0;
+      background: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .add-to-bag:hover {
+      background: #000;
+    }
+    footer {
+      background: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+  </style>
+<body>
+  <header>
+    <h1>FarmFusion</h1>
+    <input type="text" placeholder="Search by product, category or collection">
+    <div class="icons">
+      <span>🛒</span>
+      <span>❤️</span>
+       <span><a href = "{% url 'create-product'%}" style="color:black;">+</a></span>
+    </div>
+  </header>
 
+  <div class="container">
+    <div class="wishlist-header">
+      <h2 style="text-align: center ;">Products List:</h2>
+    </div>
+    <div class="product-grid">
+      <!-- Product Card -->
+      <!-- Repeat Product Cards -->
+      <div class="product-card">
+        <img src="{% static 'images/chilli.jpg' %}" alt="Product Image">
+        <div class="product-info">
+          <p class="product-title">মরিচ</p>
+          <p class="product-subtitle">All fresh chilli's are available</p>
+          <p class="product-price">
+            <u><span class="price-current">Details</span></u>
+          </p>
+          <a href="#" class="add-to-bag">Add To Cart</a>
+        </div>
+      </div>
+      <!-- Repeat Product Cards -->
+      <div class="product-card">
+        <img src="{% static 'images/eggplan.jpg' %}" alt="Product Image">
+        <div class="product-info">
+          <p class="product-title">বেগুন</p>
+          <p class="product-subtitle">All fresh eggplant's are available</p>
+          <p class="product-price">
+            <u><span class="price-current">Details</span></u>
+          </p>
+          <a href="#" class="add-to-bag">Add To Cart</a>
+        </div>
+      </div>
+      <!-- Repeat Product Cards -->
+       <div class="product-card">
+        <img src="{% static 'images/tomato.jpg' %}" alt="Product Image">
+        <div class="product-info">
+          <p class="product-title">টমেটো</p>
+          <p class="product-subtitle">All fresh tomato's are available</p>
+          <p class="product-price">
+            <u><span class="price-current">Details</span></u>
+          </p>
+          <a href="#" class="add-to-bag">Add To Cart</a>
+        </div>
+      </div>
+      <!-- Repeat Product Cards -->
+      <div class="product-card">
+        <img src="{% static 'images/carrot.jpg' %}" alt="Product Image">
+        <div class="product-info">
+          <p class="product-title">গাজর</p>
+          <p class="product-subtitle">All fresh carrot's are available</p>
+          <p class="product-price">
+            <u><span class="price-current">Details</span></u>
+          </p>
+          <a href="#" class="add-to-bag">Add To Cart</a>
+        </div>
+      </div>
+      <!-- Repeat Product Cards -->
+      <div class="product-card">
+        <img src="{% static 'images/lau.jpg' %}" alt="Product Image">
+        <div class="product-info">
+          <p class="product-title">লাউ</p>
+          <p class="product-subtitle">All fresh gourd's are available</p>
+          <p class="product-price">
+            <u><span class="price-current">Details</span></u>
+          </p>
+          <a href="#" class="add-to-bag">Add To Cart</a>
+        </div>
+      </div>
+      <!-- Add similar cards for other products -->
+      {%for i in products%}
+      <div class="product-card">
+        <img src="{{ i.image.url }}" style="height:170px ; width:170px ;margin-left: auto;margin-right: auto;" alt="Product Image">
+        <div class="product-info">
+          <p class="product-title">{{i.name}}</p>
+          <p class="product-subtitle">All fresh {{i.name}}'s are available</p>
+            <span class="price-current"><a href = "{% url 'detail-product' i.id %}" style="color:black;">Details</a></span>
+          <a href="#" class="add-to-bag">Add To Cart</a>
+        </div>
+      </div>
+      <!--<a href = "{% url 'delete-product' i.id %}">Delete Product.</a><br>-->
+      {%endfor%}
+    </div>
+  </div>
+<footer class="text-white text-center py-4" style="background-color: #92bd92; margin-top: 0; bottom: 0; width: 100%;">
+
+        <p>&copy; 2024 FarmFusion. All rights reserved.</p>
+        <div class="d-flex justify-content-center">
+            <a href="#" class="text-white mx-2">Privacy Policy</a>
+            <a href="#" class="text-white mx-2">Terms of Service</a>
+            <a href="#" class="text-white mx-2">Contact Us</a>
+        </div>
+    </footer>
 </body>
 </html>
