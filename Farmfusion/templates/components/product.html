@@ -196,7 +196,7 @@
     <h1>FarmFusion</h1>
     <input type="text" placeholder="Search by product, category or collection">
     <div class="icons">
-      <span>🛒</span>
+      <span><a href="{%url 'cart' %}">🛒</a></span>
       <span>❤</span>
       <span><a href="{% url 'create-product' %}">+</a></span>
     </div>
@@ -218,7 +218,7 @@
 <!--            <br>-->
 <!--            <span class="price-current"><a href="{% url 'product_detail' i.id %}" style="color: #28a745;">Review</a></span>-->
           </div>
-          <a href="#" class="add-to-bag">Add To Cart</a>
+          <a href="{% url 'add_to_cart' i.id %}" class="add-to-bag">Add To Cart</a>
         </div>
       </div>
       {% endfor %}
