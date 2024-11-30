@@ -1,37 +1,125 @@
-<!DOCTYPE html>
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
 
-{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a New Product</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9fafb; /* Subtle off-white background */
+            margin: 0;
+            padding: 0;
+            color: #333; /* Dark gray for text */
+        }
+        .container {
+            max-width: 800px;
+            margin: 60px auto;
+            background-color: #ffffff; /* Clean white for the form */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+        .header {
+            text-align: center;
+            background-color: #007BFF; /* Blue for header background */
+            color: white;
+            padding: 20px;
+            border-radius: 8px 8px 0 0; /* Round top edges */
+        }
+        h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            color: #555; /* Medium gray for labels */
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            background-color: #f8f9fa; /* Subtle gray for inputs */
+        }
+        .form-group textarea {
+            resize: vertical;
+            height: 120px;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #007BFF; /* Blue highlight on focus */
+            box-shadow: 0 0 4px rgba(0, 123, 255, 0.2); /* Glow effect */
+        }
+        .btn-submit {
+            display: block;
+            width: 100%;
+            background-color: #007BFF; /* Blue for button */
+            color: black;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Elevation on hover */
+        }
+    </style>
 </head>
-<body style="background-color: silver;">
-<section class="py-5 text-center" style="background-color: #92bd92; color: white;
-    border-left: 300px solid white; border-right: 300px solid white; border-top: 50px solid white; border-bottom: 50px solid white; padding: 0 15px;"><h1 style="color:black;">Add a new Product</h1>
-</section>
-<form method = "post" enctype="multipart/form-data">
-{%csrf_token%}
-    {{form.as_p}}
-      <input type="submit" value="Submit" style=" background-color: #92bd92; color: black;">
-</form>
+<body>
 
+<div class="container">
+    <div class="header">
+        <h1>Add a New Product</h1>
+    </div>
 
-<!--<form class="form" method="post" enctype="multipart/form-data" >
-    {%csrf_token%}
-    <div class="half left cf">
-    <input type="text" id="input-name" placeholder="Name"{{form.name}}
-    <input type="text" id="input-price" placeholder="Price" {{form.price}}
-    <input type="text" id="input-quantity" placeholder="Quantity" {{form.quantity}}
-  </div>
-  <div class="half right cf">
-    <textarea name="message" type="text" id="input-message" placeholder="Image" src="{{ p.image.url }}"></textarea>
-  </div>
-  <input type="submit" value="Submit" style=" background-color: #92bd92; color: black; id=">
-</form>-->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="input-name">Product Name</label>
+            {{ form.name }}
+        </div>
+
+        <div class="form-group">
+            <label for="input-price">Price</label>
+            {{ form.price }}
+        </div>
+
+        <div class="form-group">
+            <label for="input-quantity">Quantity</label>
+            {{ form.quantity }}
+        </div>
+
+        <div class="form-group">
+            <label for="input-image">Image</label>
+            {{ form.image }}
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn-submit">
+        </div>
+    </form>
+</div>
+
 </body>
 </html>
 

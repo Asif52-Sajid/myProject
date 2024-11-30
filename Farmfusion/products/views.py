@@ -37,6 +37,9 @@ from .forms import ReviewForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Avg
 
+
+
+# For Review
 def product_detail(request,p_id):
     product = get_object_or_404(Product, pk=p_id)
     reviews = product.reviews.all()
