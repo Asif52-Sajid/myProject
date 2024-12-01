@@ -164,3 +164,8 @@ def contact_us(request):
 
 def terms(request):
     return render (request,'terms.html')
+
+def search_items(request):
+    query = request.GET.get('query', '')
+    products = Product.objects.filter(name__icontains=query) 
+    return render(request, 'search_results.html', {'products': products, 'query': query})
