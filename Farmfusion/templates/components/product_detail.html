@@ -27,12 +27,39 @@
             background-color: #28a745;
             color: #fff;
             padding: 20px;
+            position: relative;
+        }
+
+        .product-header h2 {
+            margin: 0;
+            font-size: 2em;
             text-align: center;
         }
 
-        .product-header h1 {
-            margin: 0;
-            font-size: 2em;
+        .header-buttons {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Space between buttons */
+        }
+
+        .header-buttons button {
+            background-color: #004085; /* Button color */
+            color: #fff;
+            border: none;
+            padding: 5px 5px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100px; /* Ensures consistent width */
+            text-align: center;
+        }
+
+        .header-buttons button:hover {
+            background-color: #00376d; /* Hover color */
         }
 
         .product-content {
@@ -149,13 +176,17 @@
             color: #777;
             background-color: #f1f1f1;
         }
-
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Product Header -->
         <div class="product-header">
+            <!-- Header Buttons -->
+            <div class="header-buttons">
+                <button onclick="window.location.href='{% url 'home' %}'">Home</button>
+                <button onclick="window.history.back();">Back</button>
+            </div>
             <h2>Product Information</h2>
         </div>
 
@@ -168,9 +199,8 @@
 
             <!-- Product Details -->
             <div class="product-details">
-
-                <h2>Product_name:{{product.name}}</h2>
-                <div class="price">Price: ${{ product.price }}</div>
+                <h2>Product Name: {{ product.name }}</h2>
+                <div class="price">Price: ৳ {{ product.price }}</div>
                 <div class="quantity">Available Quantity: {{ product.quantity }}</div>
                 <div class="average-rating">
                     {% if average_rating %}
