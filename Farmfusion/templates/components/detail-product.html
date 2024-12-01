@@ -12,26 +12,43 @@
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa; /* Soft light-gray background */
-            color: #333; /* Dark text for better readability */
+            background-color: #f8f9fa;
+            color: #333;
         }
 
         .container {
             max-width: 600px;
             margin: 50px auto;
-            background-color: #ffffff; /* Clean white background for the table */
+            background-color: #ffffff;
             border-radius: 8px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
 
         .header {
-            background-color: #007BFF; /* Professional blue header */
+            background-color: #007BFF;
             color: #ffffff;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             padding: 20px;
             font-size: 24px;
             font-weight: bold;
+        }
+
+        .header button {
+            background-color: #6c757d;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .header button:hover {
+            background-color: #5a6268;
         }
 
         table {
@@ -46,17 +63,17 @@
         }
 
         th {
-            background-color: #007BFF; /* Blue header row */
+            background-color: #007BFF;
             color: #ffffff;
             font-weight: bold;
         }
 
         tr:nth-child(even) {
-            background-color: #f8f9fa; /* Light-gray for alternate rows */
+            background-color: #f8f9fa;
         }
 
         tr:nth-child(odd) {
-            background-color: #ffffff; /* White background for alternate rows */
+            background-color: #ffffff;
         }
 
         td img {
@@ -70,7 +87,7 @@
             display: inline-block;
             margin-top: 10px;
             padding: 10px 20px;
-            background-color: #28a745; /* Green for the button */
+            background-color: #28a745;
             color: #ffffff;
             text-decoration: none;
             font-size: 16px;
@@ -80,15 +97,15 @@
         }
 
         .btn:hover {
-            background-color: #218838; /* Darker green on hover */
+            background-color: #218838;
         }
 
         .btn-buy {
-            background-color: #ff5722; /* Orange for Buy button */
+            background-color: #ff5722;
         }
 
         .btn-buy:hover {
-            background-color: #e64a19; /* Darker orange on hover */
+            background-color: #e64a19;
         }
 
         .footer {
@@ -102,7 +119,9 @@
 <body>
     <div class="container">
         <div class="header">
-            Product Details
+            <button onclick="window.location.href='{% url 'home' %}';" style="margin-right: 10px;">Home</button>
+            <button onclick="window.history.back();">Back</button>
+            <span style="flex-grow: 1; text-align: center;">Product Details</span>
         </div>
         <table>
             <tr>
