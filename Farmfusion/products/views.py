@@ -161,3 +161,6 @@ def checkout(request):
     
 def contact_us(request):
     return render (request,'components/contact_us.html')        
+
+def terms(request):
+    return render (request,'terms.html')
