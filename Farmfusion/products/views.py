@@ -1,4 +1,5 @@
-from django.http import HttpResponse
+from pyexpat.errors import messages
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from.forms import ProductForm
 from.models import Product
@@ -148,3 +149,8 @@ def cart(request):
         'total': total,
     }
     return render(request, 'cart.html', context)
+    
+def checkout(request):
+    return render (request,'checkout.html')
+    
+        
