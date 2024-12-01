@@ -141,10 +141,16 @@ def cart(request):
 
     cart_items = CartItem.objects.filter(user=request.user)
 
-    total = sum(item.product.price * item.quantity for item in cart_items)
-
+    s_total = sum(item.product.price * item.quantity for item in cart_items)
+    tax=s_total*0.05
+    cost=100
+    total = s_total + tax+ cost
     context = {
         'cart_items': cart_items,
+        's_total':s_total,
         'total': total,
+        'tax': tax,
+        'cost': cost
+
     }
     return render(request, 'cart.html', context)
