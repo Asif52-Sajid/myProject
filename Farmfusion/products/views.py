@@ -159,4 +159,5 @@ def cart(request):
 def checkout(request):
     return render (request,'checkout.html')
     
-        
+def contact_us(request):
+    return render (request,'components/contact_us.html')        
