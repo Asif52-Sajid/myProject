@@ -137,7 +137,7 @@ def checkout(request):
     else:
         messages.error(request, 'Your cart is empty. Please add items before checkout.')
         return redirect('cart')
-
+@login_required(login_url='/login/')
 def cart(request):
 
     cart_items = CartItem.objects.filter(user=request.user)
