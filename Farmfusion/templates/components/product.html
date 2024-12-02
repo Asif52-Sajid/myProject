@@ -199,7 +199,12 @@
 
 
     <h1>FarmFusion</h1>
-    <input type="text" placeholder="Search by product, category or collection">
+    <form method="GET" action="{% url 'search_items' %}" style="display: flex; align-items: center;">
+      <input type="text" name="query" placeholder="Search by product, category or collection" required>
+      <button type="submit" style="margin-left: 10px; padding: 10px 20px; border: none; background-color: #4CAF50; color: white; border-radius: 5px; cursor: pointer;">
+          Search
+      </button>
+     </form>
     <div class="icons">
       <span><a href="{%url 'cart' %}">🛒</a></span>
       <span>❤</span>
